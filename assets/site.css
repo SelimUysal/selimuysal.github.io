@@ -225,3 +225,10 @@ body.experience-lightbox-open{overflow:hidden}
   .experience-lightbox__image{max-height:calc(100dvh - 175px)}
 }
 @media print{.experience-lightbox{display:none!important}}
+
+/* SadaQuran: square artwork remains fully visible within the standard 16:9 card. */
+.project-cover-media--sadaquran{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#07172b 0%,#172b40 56%,#263c52 100%)}
+.project-cover-media--sadaquran img{display:block;width:auto;height:78%;max-width:65%;max-height:160px;aspect-ratio:1;object-fit:contain;border-radius:12px;box-shadow:0 8px 28px #0007}
+.project-live-badge{display:inline-flex;align-items:center;vertical-align:middle;margin-left:9px;padding:4px 8px;border:1px solid #4c9e76;background:rgba(37,120,80,.16);color:#71db9f;border-radius:999px;font-size:10px;letter-spacing:.08em;font-weight:800;white-space:nowrap}
+:root[data-theme='light'] .project-live-badge{color:#146b42;background:#e4f5e9;border-color:#8abca0}
+@media(max-width:630px){.project-cover-media--sadaquran img{height:75%;max-width:60%}}

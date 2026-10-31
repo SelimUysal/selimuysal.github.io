@@ -1,4 +1,4 @@
-import { DATA } from './data.js?v=design-patterns-report-20261028';
+import { DATA } from './data.js?v=sadaquran-live-20261031';
 
 const root=document.querySelector('#app');
 const page=document.body.dataset.page;
@@ -11,7 +11,7 @@ const tr={caseStudies:'Teknik incelemeler',home:'Ana sayfa',work:'Çalışmalar'
 const t=k=>(state.lang==='tr'?tr:en)[k]??k;
 const loc=x=>typeof x==='string'?x:(x?.[state.lang]??x?.en??'');
 const href=(url,text,cls='')=>`<a class="${safe(cls)}" href="${safe(url)}"${/^(https?:|mailto:)/.test(url)||url.endsWith('.pdf')?' target="_blank" rel="noopener noreferrer"':''}>${safe(text)}</a>`;
-const links=p=>(p.links||[]).map(l=>href(l.url,`${t(l.kind)} ↗`)).join('');
+const links=p=>(p.links||[]).map(l=>href(l.url,p.id==='sadaquran'&&l.kind==='live'?(state.lang==='tr'?'Canlı dinle ↗':'Listen live ↗'):`${t(l.kind)} ↗`)).join('');
 const tagList=(stack,max=4)=>(stack||[]).slice(0,max).map(v=>`<span class="tag">${safe(v)}</span>`).join('');
 const audienceLink=(section)=>page==='home'?`#${section}`:`./index.html#${section}`;
 function header(){const nav=[['work','work'],['research','research'],['experience','experience'],['about','about'],['volunteering','volunteering']].map(([label,id])=>`<a href="${audienceLink(id)}">${t(label)}</a>`).join('');const projects=`<a href="./projects.html" ${page==='projects'?'aria-current="page"':''}>${t('all')}</a><a href="./case-studies.html" ${page==='case-studies'?'aria-current="page"':''}>${t('caseStudies')}</a>`;return `<a href="#main" class="skip">${state.lang==='tr'?'İçeriğe geç':'Skip to content'}</a><header class="site-header"><div class="container header-inner"><a href="./index.html" class="identity" aria-label="Selim Uysal — ${t('home')}"><img class="identity-mark" src="./assets/selim-monogram.webp" alt="" width="43" height="43" decoding="async"><span class="identity-name"><strong>Selim Uysal</strong><small>Software Engineer</small></span></a><nav class="nav" aria-label="Primary navigation">${nav}${projects}</nav><div class="header-actions"><button class="lang-btn" data-lang aria-label="${t('language')}: ${state.lang==='tr'?'English':'Türkçe'}">${state.lang==='tr'?'TR':'EN'}</button><button class="icon-btn" data-toggle-theme aria-label="${t('theme')}" title="${t('theme')}">${state.theme==='dark'?'☀':'☾'}</button><a class="small-cta" href="${page==='home'?'#contact':'./index.html#contact'}">${t('contact')}</a><button class="menu-btn" data-menu aria-expanded="${state.menu}" aria-controls="mobile-nav" aria-label="${t('menu')}">${state.menu?'✕':'☰'}</button></div></div><nav class="container mobile-nav ${state.menu?'open':''}" id="mobile-nav" aria-label="Mobile navigation">${nav}${projects}<a href="${page==='home'?'#contact':'./index.html#contact'}">${t('contact')}</a></nav></header>`}
@@ -20,7 +20,7 @@ function sectionHead(kicker,title,description,extra=''){return `<div class="sect
 const kinds=p=>p.category==='research'?t('academicFilter'):p.category==='archive'?t('learning'):t('software');
 function projectCard(p,index,compact=false,featured=false){
 const isFeatured=featured&&p.id==='hayat';
-const content=`<div class="card-top"><span class="project-number">${String(index+1).padStart(2,'0')} / ${safe(p.year||'CODE')}</span><span class="project-kind">${safe(kinds(p))}</span></div><h3>${safe(loc(p.name))}</h3><p>${safe(loc(p.description))}</p><div class="tags">${tagList(p.stack,compact?3:4)}</div><div class="project-actions">${links(p)}</div>`;
+const content=`<div class="card-top"><span class="project-number">${String(index+1).padStart(2,'0')} / ${safe(p.year||'CODE')}</span><span class="project-kind">${safe(kinds(p))}</span></div><h3>${safe(loc(p.name))}${p.id==='sadaquran'?' <span class="project-live-badge">LIVE</span>':''}</h3><p>${safe(loc(p.description))}</p><div class="tags">${tagList(p.stack,compact?3:4)}</div><div class="project-actions">${links(p)}</div>`;
 const coverMap={
   teknofest:{src:'./assets/academic-teknofest-cover.svg',width:1600,height:900,en:'Concept illustration of aerial computer vision; not actual experimental output',tr:'Concept illustration of aerial computer vision; not actual experimental output'},
   oracle:{src:'./assets/academic-oracle-cover.svg',width:1600,height:900,en:'Conceptual ER diagram of student course and enrollment database entities',tr:'Conceptual ER diagram of student course and enrollment database entities'},
@@ -29,11 +29,12 @@ const coverMap={
   hayat:{src:'./assets/hayat-rehberi-cover.webp',width:1000,height:563,en:'Hayat Rehberi application modules overview',tr:'Hayat Rehberi uygulamasının bölümlerini gösteren kapak'},
   video:{src:'./assets/video-speed-cover.webp',width:1920,height:1080,en:'Video Speed extension playback controls and browser interface',tr:'Video Speed eklentisinin tarayıcı ve video kontrol arayüzü'},
   telegram:{src:'./assets/telegram-news-cover.webp',width:1920,height:1080,en:'Telegram news automation workflow and sample channel',tr:'Telegram haber otomasyonu iş akışı ve örnek kanal'},
-  quran:{src:'./assets/quran-memorization-cover.webp',width:1920,height:1080,en:'Quran memorization and Arabic word analysis application',tr:'Kur’an ezber ve Arapça kelime analizi uygulaması'}
+  quran:{src:'./assets/quran-memorization-cover.webp',width:1920,height:1080,en:'Quran memorization and Arabic word analysis application',tr:'Kur’an ezber ve Arapça kelime analizi uygulaması'},
+  sadaquran:{src:'./assets/sadaquran-radio-icon.webp',width:192,height:192,en:'SadaQuran Radio cover artwork featuring the holy cities and a Qur’an',tr:'Kutsal şehirleri ve Kur’an-ı Kerim’i tasvir eden SadaQuran Radyo kapak görseli'}
 };
 const cover=coverMap[p.id];
 const mediaLink=p.links?.find(x=>['live','store','source','report'].includes(x.kind))?.url;
-const media=cover?`<a href="${safe(mediaLink||'#')}" class="${isFeatured?'project-feature-media':'project-cover-media'}" target="_blank" rel="noopener noreferrer" aria-label="${safe(state.lang==='tr'?'Projeyi görüntüle: '+loc(p.name):'View project: '+loc(p.name))}"><img src="${safe(cover.src)}" width="${cover.width}" height="${cover.height}" loading="lazy" decoding="async" alt="${safe(state.lang==='tr'?cover.tr:cover.en)}"></a>`:'';
+const media=cover?`<a href="${safe(mediaLink||'#')}" class="${isFeatured?'project-feature-media':'project-cover-media'}${p.id==='sadaquran'?' project-cover-media--sadaquran':''}" target="_blank" rel="noopener noreferrer" aria-label="${safe(state.lang==='tr'?'Projeyi görüntüle: '+loc(p.name):'View project: '+loc(p.name))}"><img src="${safe(cover.src)}" width="${cover.width}" height="${cover.height}" loading="lazy" decoding="async" alt="${safe(state.lang==='tr'?cover.tr:cover.en)}"></a>`:'';
 return `<article class="project-card${isFeatured?' project-card-featured':''}" data-project="${safe(p.id)}">${media}${isFeatured?`<div class="project-feature-content">${content}</div>`:content}</article>`;
 }
 const select=ids=>ids.map(id=>DATA.projects.find(p=>p.id===id)).filter(Boolean);
