@@ -2,7 +2,7 @@
 
 A responsive, bilingual and accessible software engineering portfolio, hosted on GitHub Pages.
 
-**Live website:** https://selimuysal.github.io/selim/
+**Live website:** https://selimuysal.github.io/
 
 ## Architecture
 - `index.html`: main portfolio and instant project search
