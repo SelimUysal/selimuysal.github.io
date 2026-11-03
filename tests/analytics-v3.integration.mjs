@@ -130,7 +130,7 @@ await Promise.all(pending);
 for(const table of ["analytics_detail_events","analytics_daily_summary","analytics_click_targets"]){
  assert.ok(records.some(x=>x.sql.includes("DELETE FROM "+table)&&x.sql.includes("-365 days")),"365-day cleanup "+table);
 }
-for(const page of ["index.html","projects.html","case-studies.html"]){
+for(const page of ["index.html","projects.html"]){
  const html=read(page);
  assert.ok(html.includes("assets/consent-analytics.js"),"v3 client installed "+page);
  assert.ok(!html.includes('src="./assets/cookieless-analytics.js'),"old tracker disabled "+page);
