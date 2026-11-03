@@ -400,8 +400,8 @@ export const DATA = {
     }
   ],
   "researchStatement": {
-    "en": "My research interests focus on large language models (LLMs) and AI agents, particularly multi-step planning, tool use, and reliability under constraints. I aim to explore evaluation methods and software-engineering approaches for building dependable AI-enabled systems.",
-    "tr": "Araştırma ilgim büyük dil modelleri (LLM) ve yapay zekâ ajanlarına odaklanıyor. Özellikle çok adımlı planlama, araç kullanımı ve kısıtlı koşullarda güvenilirlik konularını; değerlendirme yöntemleri ve güvenilir AI sistemleri geliştirmeye yönelik yazılım mühendisliği yaklaşımlarıyla incelemek istiyorum."
+    "en": "My research focuses on large language models (LLMs) and AI agents, particularly multi-step planning, tool use, reliability under constraints, evaluation, and software engineering for dependable AI systems.",
+    "tr": "Araştırmalarım büyük dil modelleri (LLM) ve yapay zekâ ajanlarına odaklanıyor. Özellikle çok adımlı planlama, araç kullanımı, kısıtlı koşullarda güvenilirlik, değerlendirme ve güvenilir AI sistemleri için yazılım mühendisliği konularıyla ilgileniyorum."
   },
   "experiences": [
     {
