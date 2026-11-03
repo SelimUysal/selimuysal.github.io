@@ -7,9 +7,9 @@ A responsive, bilingual and accessible software engineering portfolio, hosted on
 ## Architecture
 - `index.html`: main portfolio and instant project search
 - `projects.html`: searchable project directory
-- `case-studies.html`: technical case studies
-- `assets/data.js`: a single source for project links, descriptions and credentials
-- `assets/site.js`: multilingual UI, search, and theme preferences
+- `articles/`: independent essays and source-led analysis
+- `assets/data.js`: shared profile, project, research, experience and credential data
+- `assets/site.js`: bilingual UI, project search, navigation, theme preferences and page rendering
 - `assets/site.css`: responsive design system
 
 All data is rendered client-side without a backend. PDF reports and certificates are provided in `assets/`.
