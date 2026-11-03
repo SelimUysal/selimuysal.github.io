@@ -51,7 +51,7 @@ function home(){const work=select(['hayat','video','telegram']),academic=select(
 <section class="section" id="work"><div class="container">${sectionHead('01 / ACADEMIC WORK',t('academicWork'),'')}<div class="academic-grid">${academic.map((p,i)=>projectCard(p,i,true,i===0)).join('')}</div><p class="section-note">${t('note')}</p></div></section>
 <section class="section" id="software-projects"><div class="container">${sectionHead('02 / SOFTWARE PROJECTS',t('featured'),'',`<a class="plain-link" href="./projects.html">${t('viewAll')} ↗</a>`)}<div class="project-grid">${work.map((p,i)=>projectCard(p,p.id==='telegram'?3:i,false,i===0)).join('')}</div></div></section>
 <section class="section" id="research"><div class="container">${sectionHead('03 / RESEARCH',t('researchTitle'),'')}<div class="research-band"><div><span class="kicker">RESEARCH STATEMENT</span><h3>${state.lang==='tr'?'LLM ve yapay zekâ ajanları: güvenilirlik, değerlendirme ve araç kullanımı.':'LLMs and AI agents: reliability, evaluation and tool use.'}</h3><p>${safe(loc(DATA.researchStatement))}</p></div><div class="research-tags"><h4>${t('researchAreas')}</h4>${['Large Language Models (LLMs)','AI Agents & Tool Use','Reliability & Evaluation','Software Engineering for AI'].map(x=>`<span class="tag">${x}</span>`).join('')}<h4>${state.lang==='tr'?'Önceki uygulamalı proje':'Previous applied project'}</h4><span class="tag">Computer Vision · TEKNOFEST 2024</span></div></div></div></section>
-<section class="section" id="experience"><div class="container">${sectionHead('04 / EXPERIENCE',t('experienceTitle'),'')}<div class="timeline">${DATA.experiences.map(x=>`<article class="experience-card"><time>${safe(x.date)}</time><h3>${safe(x.name)}</h3><strong>${safe(loc(x.kind))}</strong>${x.image?`<a class="experience-photo experience-photo--${safe(x.imageClass)}" href="${safe(x.image)}" aria-haspopup="dialog" aria-label="${safe(loc(x.imageAlt))}"><img src="${safe(x.image)}" alt="${safe(loc(x.imageAlt))}" loading="lazy" decoding="async" width="${x.imageWidth}" height="${x.imageHeight}"></a>`:''}<p>${safe(loc(x.description))}</p>${x.video?`<a class="experience-video" href="${safe(x.video)}" target="_blank" rel="noopener noreferrer" aria-label="${state.lang==='tr'?'AYESAŞ proje anlatımını YouTube’da izle':'Watch AYESAŞ project presentation on YouTube'}"><span aria-hidden="true">▶</span> ${state.lang==='tr'?'Proje anlatımını izle':'Watch project presentation'} <span aria-hidden="true">↗</span></a>`:''}${x.credential?`<a class="experience-video" href="${safe(x.credential)}" target="_blank" rel="noopener noreferrer">${state.lang==="tr"?"İleri Robotik eğitmenlik belgesi (PDF)":"Advanced Robotics instructor certificate (PDF)"} ↗</a>`:""}</article>`).join('')}</div></div></section>
+<section class="section" id="experience"><div class="container">${sectionHead('04 / EXPERIENCE',t('experienceTitle'),'')}<div class="timeline">${DATA.experiences.map(x=>`<article class="experience-card"><time>${safe(x.date)}</time><h3>${safe(x.name)}</h3><strong>${safe(loc(x.kind))}</strong>${x.image?`<div class="experience-photo experience-photo--${safe(x.imageClass)}" role="img" aria-label="${safe(loc(x.imageAlt))}"><img src="${safe(x.image)}" alt="" loading="lazy" decoding="async" draggable="false" width="${x.imageWidth}" height="${x.imageHeight}"></div>`:''}<p>${safe(loc(x.description))}</p>${x.video?`<a class="experience-video" href="${safe(x.video)}" target="_blank" rel="noopener noreferrer" aria-label="${state.lang==='tr'?'AYESAŞ proje anlatımını YouTube’da izle':'Watch AYESAŞ project presentation on YouTube'}"><span aria-hidden="true">▶</span> ${state.lang==='tr'?'Proje anlatımını izle':'Watch project presentation'} <span aria-hidden="true">↗</span></a>`:''}${x.credential?`<a class="experience-video" href="${safe(x.credential)}" target="_blank" rel="noopener noreferrer">${state.lang==="tr"?"İleri Robotik eğitmenlik belgesi (PDF)":"Advanced Robotics instructor certificate (PDF)"} ↗</a>`:""}</article>`).join('')}</div></div></section>
 <section class="section" id="about"><div class="container">${sectionHead('05 / BACKGROUND',t('aboutTitle'),'')}<div class="bottom-grid"><div class="info-card"><span class="kicker">${t('edu')}</span><h3>${safe(loc({en:grad.degree,tr:'Yazılım Mühendisliği Lisans'}))}</h3><p>Atılım University · Ankara, Türkiye · 2025</p></div><div class="info-card"><span class="kicker">${t('recognition')}</span>${DATA.honors.filter(h=>h.date==='2023'||h.date==='2024').map((h,i)=>`<div ${i?'class="line"':''}></div><h4>${safe(loc(h.name))}</h4><p>${safe(loc(h.detail))}</p>`).join('')}</div></div></div></section>
 <section class="section" id="certifications"><div class="container">${sectionHead('06 / CREDENTIALS',t('certTitle'),'')}<div class="certificate-grid">${DATA.certificates.map(c=>`<article class="certificate"><span class="kicker">${safe(c.issuer)}</span><h3>${safe(loc(c.title))}</h3><p>${safe(c.year)}</p>${href(c.pdf,(c.kind==='recognition'?(state.lang==='tr'?'Eğitmenlik teşekkür belgesini görüntüle':'View instructor recognition'):t('viewCertificate'))+' ↗')}${c.url?` &nbsp; · &nbsp; ${href(c.url,t('verify')+' ↗')}`:''}</article>`).join('')}</div></div></section>
 
@@ -72,41 +72,13 @@ function drawResults(){const target=document.querySelector('#results');if(!targe
 function render(){document.documentElement.lang=state.lang;document.documentElement.dataset.theme=state.theme;document.title=`Selim Uysal · ${page==='home'?'Software Engineer':page==='projects'?t('all'):'Software Engineer'}`;root.innerHTML=page==='home'?home():page==='projects'?directory():home();if(page==='projects'){drawResults();document.querySelector('#query')?.addEventListener('input',e=>{state.query=e.target.value;drawResults()});document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{state.filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));drawResults()}));document.querySelectorAll('[data-query]').forEach(b=>b.addEventListener('click',()=>{const input=document.querySelector('#query');input.value=b.dataset.query;state.query=input.value;drawResults();input.focus()}));}
  document.querySelector('[data-lang]')?.addEventListener('click',()=>{state.lang=state.lang==='en'?'tr':'en';save('selim-language',state.lang);render()});document.querySelector('[data-toggle-theme]')?.addEventListener('click',()=>{state.theme=state.theme==='dark'?'light':'dark';save('selim-theme',state.theme);render()});document.querySelector('[data-menu]')?.addEventListener('click',()=>{state.menu=!state.menu;render()});document.querySelectorAll('.mobile-nav a').forEach(a=>a.addEventListener('click',()=>{state.menu=false;document.querySelector('.mobile-nav')?.classList.remove('open');const toggle=document.querySelector('[data-menu]');if(toggle){toggle.setAttribute('aria-expanded','false');toggle.textContent='☰';}}));}
 // Open experience photos in an accessible, in-page viewer instead of a new tab.
-let experienceDialog;
-let lastExperiencePhotoTrigger;
-function showExperiencePhoto(trigger){
-  if(!experienceDialog){
-    experienceDialog=document.createElement('dialog');
-    experienceDialog.className='experience-lightbox';
-    experienceDialog.setAttribute('aria-labelledby','experience-lightbox-caption');
-    experienceDialog.innerHTML='<div class="experience-lightbox__frame"><button class="experience-lightbox__close" type="button" aria-label="Close photo" title="Close photo">×</button><figure class="experience-lightbox__figure"><img class="experience-lightbox__image" alt=""><figcaption id="experience-lightbox-caption" class="experience-lightbox__caption"></figcaption></figure></div>';
-    experienceDialog.querySelector('.experience-lightbox__close').addEventListener('click',()=>experienceDialog.close());
-    experienceDialog.addEventListener('click',e=>{if(e.target===experienceDialog)experienceDialog.close()});
-    experienceDialog.addEventListener('close',()=>{
-      document.body.classList.remove('experience-lightbox-open');
-      if(lastExperiencePhotoTrigger?.isConnected)lastExperiencePhotoTrigger.focus();
-    });
-    document.body.append(experienceDialog);
-  }
-  lastExperiencePhotoTrigger=trigger;
-  const photo=trigger.querySelector('img');
-  const image=experienceDialog.querySelector('.experience-lightbox__image');
-  image.src=trigger.href;
-  image.alt=photo?.alt||'';
-  const company=trigger.closest('.experience-card')?.querySelector('h3')?.textContent||'';
-  experienceDialog.querySelector('.experience-lightbox__caption').textContent=company;
-  const close=experienceDialog.querySelector('.experience-lightbox__close');
-  const closeText=state.lang==='tr'?'Fotoğrafı kapat':'Close photo';
-  close.setAttribute('aria-label',closeText);
-  close.title=closeText;
-  experienceDialog.showModal();
-  document.body.classList.add('experience-lightbox-open');
-}
-document.addEventListener('click',event=>{
-  const trigger=event.target instanceof Element?event.target.closest('a.experience-photo'):null;
-  if(!trigger||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
-  event.preventDefault();
-  showExperiencePhoto(trigger);
+document.addEventListener('contextmenu',event=>{
+  const target=event.target instanceof Element?event.target.closest('.experience-photo'):null;
+  if(target)event.preventDefault();
+});
+document.addEventListener('dragstart',event=>{
+  const target=event.target instanceof Element?event.target.closest('.experience-photo'):null;
+  if(target)event.preventDefault();
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&state.menu){state.menu=false;render()}if(e.key==='/'&&!['INPUT','TEXTAREA'].includes(document.activeElement?.tagName)){const s=document.querySelector('#query');if(s){e.preventDefault();s.focus()}}});
 render();
