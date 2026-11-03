@@ -141,7 +141,7 @@ assert.ok(client.includes('let mode="reject",started=false'),"default opt-out");
 assert.ok(client.includes('navigator.globalPrivacyControl'),"browser GPC respected");
 assert.ok(client.includes('const old=mode==="extended"?"extended":read()'),"withdrawal after reload");
 assert.ok(client.includes("navigator.sendBeacon"),"outbound event delivery fallback");
-assert.ok(client.includes('mode=choice==="reject"?"anonymous":choice'),"reject becomes anonymous aggregate tracking");
+assert.ok(client.includes('if(choice==="reject"){mode="reject";started=true;return}')&&client.includes('if(!started||DNT||!["basic","extended"].includes(mode))return;'),"reject remains opt-out and sends no analytics events");
 assert.ok(client.includes('document.querySelector("#selim-analytics-prefs")?.remove()'),"popup closes after selection");
 assert.ok(!client.includes("selim-analytics-settings"),"fixed floating preferences button removed");
 assert.ok(client.includes('analytics")==="preferences"'),"footer link can open preferences");
