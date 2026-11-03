@@ -403,8 +403,9 @@ body.experience-lightbox-open{overflow:hidden}
 
 /* Writing cards: match the shared academic and software project-card system. */
 .writing-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:19px}
-.writing-card{background:linear-gradient(115deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:17px;min-width:0;padding:27px;display:flex;flex-direction:column;min-height:280px;transition:border-color .15s,transform .15s}
+.writing-card{background:var(--panel);border:1px solid var(--line);border-radius:17px;min-width:0;padding:27px;display:flex;flex-direction:column;min-height:280px;transition:border-color .15s,transform .15s}
 .writing-card:hover{border-color:var(--blue);transform:translateY(-2px)}
+:root[data-theme='light'] .writing-card{background:linear-gradient(115deg,var(--panel),var(--panel-2))}
 .writing-meta{display:flex;align-items:flex-start;justify-content:space-between;gap:15px;margin-bottom:18px}
 .writing-meta span:first-child{font-size:12px;color:var(--blue);font-weight:800;letter-spacing:.14em}
 .writing-meta span:last-child{color:var(--faint);font-size:11px;text-transform:uppercase;letter-spacing:.08em;text-align:right}
