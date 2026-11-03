@@ -149,4 +149,4 @@ assert.ok(client.includes('analytics")==="preferences"'),"footer link can open p
 assert.ok(read("privacy.html").includes("365 gün"),"retention notice matches");
 assert.ok(read("cloudflare/report-worker.js").includes('value="365"'),"annual selection available");
 assert.ok(read("cloudflare/report-worker.js").includes("ORDER BY day ASC LIMIT 365"),"annual timeline includes 365 days");
-console.log("PASS: health, consent, cross-origin, GPC/DNT, aggregation, AES-GCM, geo/device, clicks, deletion, auth, decryption, 365-day retention, three pages.");
+console.log("PASS: health, consent, cross-origin, GPC/DNT, aggregation, AES-GCM, geo/device, clicks, deletion, auth, decryption, 365-day retention, two pages.");
