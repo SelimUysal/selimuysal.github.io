@@ -81,10 +81,10 @@ async function forget(){const t=token||storage()?.getItem(TOKEN);if(!t)return tr
 function choose(choice){const old=mode==="extended"?"extended":read();started=false;mode="reject";since=0;write(choice);document.querySelector("#selim-analytics-prefs")?.remove();if(choice!=="extended"&&old==="extended")void forget();void begin(choice)}
 function el(t,txt){const n=document.createElement(t);if(txt!=null)n.textContent=txt;return n}
 function prefs(){document.querySelector("#selim-analytics-prefs")?.remove();
-const en=document.documentElement.lang==="en";
+let language=document.documentElement.lang==="tr"?"tr":"en";try{const saved=localStorage.getItem("selim-language");if(saved==="tr"||saved==="en")language=saved}catch{}const en=language==="en";
 const pane=el("section");pane.id="selim-analytics-prefs";pane.setAttribute("role","dialog");pane.setAttribute("aria-label",en?"Analytics preferences":"Ziyaret analizi tercihleri");pane.setAttribute("aria-describedby","selim-analytics-description");
 const h=el("h2",en?"Your privacy choices":"Ziyaret analizi tercihleri");pane.append(h);
-const p=el("p",en?"No email or name is requested. Rejecting analytics does not limit the site. Basic analytics uses daily country/device-group totals; extended analytics adds pseudonymous visit and device details.":"E-posta veya ad istenmez. Analizi reddetmeniz siteyi kullanmanızı engellemez. Temel izin günlük ülke/cihaz grubu toplamlarını; ayrıntılı izin ise takma adlı ziyaret ve cihaz bilgilerini kapsar.");p.id="selim-analytics-description";pane.append(p);
+const p=el("p",en?"No email or name is requested. Rejecting analytics does not limit the site.":"E-posta veya ad istenmez. Analitiği reddetmeniz siteyi kullanmanızı kısıtlamaz.");p.id="selim-analytics-description";pane.append(p);
 const privacy=el("a",en?"Read the privacy notice":"Gizlilik açıklamasını oku");privacy.href=base+"/privacy.html";privacy.className="privacy-link";pane.append(privacy);
 const bar=el("div");bar.className="actions";
 const choices=en?[["reject","Reject"],["basic","Basic"],["extended","Extended"]]:[["reject","Reddet"],["basic","Temel izin"],["extended","Ayrıntılı izin"]];
