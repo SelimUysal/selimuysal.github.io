@@ -282,3 +282,109 @@ body.experience-lightbox-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){
   .project-cover-media--sadaquran:hover{transform:none}
 }
+
+/* Experience & teaching: compact photo-led vertical timeline. */
+.timeline{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  max-width:1060px;
+  margin:0;
+  padding-left:48px;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:18px;
+  top:27px;
+  bottom:27px;
+  width:1px;
+  background:var(--line);
+}
+.experience-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:160px minmax(0,1fr);
+  grid-template-areas:
+    "photo date"
+    "photo title"
+    "photo role"
+    "photo description";
+  align-content:center;
+  align-items:start;
+  gap:6px 24px;
+  min-width:0;
+  padding:22px 25px;
+  border:1px solid var(--line);
+  border-left:2px solid var(--blue);
+  border-radius:16px;
+  background:linear-gradient(115deg,var(--panel),var(--panel-2));
+}
+.experience-card::before{
+  content:"";
+  position:absolute;
+  left:-37px;
+  top:31px;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--blue);
+  box-shadow:0 0 0 4px var(--panel);
+}
+.experience-card time{grid-area:date;margin:0}
+.experience-card h3{grid-area:title;margin:0;font-size:22px}
+.experience-card strong{grid-area:role;font-size:13px}
+.experience-card p{
+  grid-area:description;
+  margin:4px 0 0;
+  font-size:13.5px;
+  line-height:1.75;
+}
+.experience-card > .experience-photo{
+  grid-area:photo;
+  align-self:center;
+  width:160px;
+  max-width:100%;
+  height:194px;
+  margin:0;
+  border-radius:12px;
+}
+.experience-card > .experience-photo--deneyap{height:100px}
+.experience-card > .experience-video{
+  grid-column:2;
+  justify-self:start;
+  margin-top:5px;
+}
+@media(max-width:900px){
+  .timeline{padding-left:42px}
+  .timeline::before{left:15px}
+  .experience-card{grid-template-columns:140px minmax(0,1fr);gap:6px 19px;padding:20px}
+  .experience-card::before{left:-33px}
+  .experience-card > .experience-photo{width:140px;height:178px}
+  .experience-card > .experience-photo--deneyap{height:88px}
+}
+@media(max-width:630px){
+  .timeline{gap:15px;padding-left:32px}
+  .timeline::before{left:11px;top:22px;bottom:22px}
+  .experience-card{
+    grid-template-columns:96px minmax(0,1fr);
+    gap:5px 12px;
+    padding:15px;
+    border-radius:13px;
+  }
+  .experience-card::before{left:-27px;top:25px;width:10px;height:10px}
+  .experience-card time{font-size:11px}
+  .experience-card h3{font-size:18px}
+  .experience-card strong{font-size:11.5px;line-height:1.5}
+  .experience-card p{font-size:12px;line-height:1.65;margin-top:3px}
+  .experience-card > .experience-photo{width:96px;height:130px}
+  .experience-card > .experience-photo--deneyap{height:68px}
+  .experience-card > .experience-video{font-size:10.5px;padding:6px 8px;margin-top:4px}
+}
+@media(max-width:390px){
+  .experience-card{grid-template-columns:84px minmax(0,1fr);gap:5px 10px;padding:13px}
+  .experience-card h3{font-size:16px}
+  .experience-card > .experience-photo{width:84px;height:118px}
+  .experience-card > .experience-photo--deneyap{height:60px}
+}
