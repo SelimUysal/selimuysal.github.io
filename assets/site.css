@@ -389,3 +389,43 @@ body[data-page="home"] .section-heading > div > p {display:none !important;}
 @media(max-width:900px){.writing-card{min-height:0;padding:23px}}
 @media(max-width:760px){.writing-directory-intro{padding:48px 0 24px}}
 @media(max-width:630px){.writing-grid{grid-template-columns:1fr}}
+
+/* Reading comfort: a modest type-scale refinement without changing the layout. */
+body{font-size:16px;line-height:1.72}
+.section-heading p{font-size:16px}
+.hero .hero-lead{font-size:clamp(16px,1.45vw,19px);line-height:1.78}
+.page-hero p{font-size:18px;line-height:1.8}
+.project-card p{font-size:14px;line-height:1.78}
+.academic-grid .project-card p{font-size:13.5px}
+.project-feature-content p{font-size:15px;line-height:1.78}
+.academic-grid>.project-card-featured .project-feature-content p{font-size:15px}
+.research-band p{font-size:15px;line-height:1.85}
+.experience-card p{font-size:14.5px;line-height:1.8}
+.experience-card h3{font-size:23px}
+.experience-card strong{font-size:14px}
+.info-card p,.certificate p,.cv-card p{font-size:14px;line-height:1.75}
+.info-card h3{font-size:22px}
+.info-card h4{font-size:16px}
+.certificate h3,.cv-card h3{font-size:21px}
+.project-card h3,.writing-card h3{font-size:24px}
+.academic-grid .project-card h3{font-size:21px}
+.project-feature-content h3,.academic-grid>.project-card-featured .project-feature-content h3{font-size:clamp(24px,2.5vw,31px)}
+.research-band h3{font-size:clamp(25px,2.6vw,35px)}
+.section-heading h2{font-size:clamp(31px,4vw,47px)}
+.writing-card p{font-size:14px;line-height:1.8}
+.writing-directory-intro p{font-size:17px;line-height:1.85}
+.directory-status{font-size:14px}
+@media(max-width:630px){
+  .hero .hero-lead{font-size:16px}
+  .section-heading h2{font-size:33px}
+  .project-card p,.academic-grid .project-card p,.project-feature-content p,
+  .academic-grid>.project-card-featured .project-feature-content p{font-size:14px;line-height:1.75}
+  .project-feature-content h3,.academic-grid>.project-card-featured .project-feature-content h3{font-size:24px}
+  .experience-card p{font-size:13.5px;line-height:1.75}
+  .experience-card h3{font-size:19px}
+  .experience-card strong{font-size:12.5px}
+}
+@media(max-width:390px){
+  .experience-card h3{font-size:17px}
+}
+
