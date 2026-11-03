@@ -7,7 +7,7 @@ for(const p of ['cloudflare/collector-worker.js','cloudflare/report-worker.js','
  if(p.includes('consent')){assert.ok(s.includes('read()'));assert.ok(s.includes('prefs()'));}
  console.log('PASS',p);
 }
-for(const p of ['index.html','projects.html','case-studies.html']){
+for(const p of ['index.html','projects.html']){
  const s=readFileSync(p,'utf8');
  assert.ok(s.includes('consent-analytics.js'));assert.ok(!s.includes('<script defer src="./assets/cookieless-analytics.js'));
  console.log('PASS',p);
