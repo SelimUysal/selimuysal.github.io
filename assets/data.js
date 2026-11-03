@@ -400,8 +400,8 @@ export const DATA = {
     }
   ],
   "researchStatement": {
-    "en": "My current research interests centre on large language models (LLMs) and AI agents. I am particularly interested in how LLM-based agents plan multi-step tasks, use tools, and remain reliable under constraints. At graduate level, I aim to study evaluation methods, failure modes, and software-engineering practices for building dependable, maintainable AI-enabled systems. My computer-vision work with YOLOv8, YOLOv9 and SAHI belongs to an earlier applied project: the TEKNOFEST 2024 AI in Transportation project with the SEE AI team. It represents project experience rather than my primary current research direction.",
-    "tr": "Güncel araştırma ilgim büyük dil modelleri (LLM) ve yapay zekâ ajanları üzerinde yoğunlaşıyor. Özellikle LLM tabanlı ajanların çok adımlı görevleri nasıl planladığını, araçları nasıl kullandığını ve kısıtlı koşullarda ne ölçüde güvenilir çalıştığını incelemek istiyorum. Lisansüstü araştırmalarımda değerlendirme yöntemleri, hata türleri ve güvenilir, sürdürülebilir AI destekli sistemler geliştirmeye yönelik yazılım mühendisliği yaklaşımlarına odaklanmayı hedefliyorum. YOLOv8, YOLOv9 ve SAHI ile yaptığım bilgisayarlı görü çalışması ise SEE AI ekibiyle yürüttüğümüz TEKNOFEST 2024 Ulaşımda Yapay Zekâ projesine ait önceki uygulamalı proje deneyimimdir; güncel ana araştırma yönelimim değildir."
+    "en": "My research interests focus on large language models (LLMs) and AI agents, particularly multi-step planning, tool use, and reliability under constraints. I aim to explore evaluation methods and software-engineering approaches for building dependable AI-enabled systems.",
+    "tr": "Araştırma ilgim büyük dil modelleri (LLM) ve yapay zekâ ajanlarına odaklanıyor. Özellikle çok adımlı planlama, araç kullanımı ve kısıtlı koşullarda güvenilirlik konularını; değerlendirme yöntemleri ve güvenilir AI sistemleri geliştirmeye yönelik yazılım mühendisliği yaklaşımlarıyla incelemek istiyorum."
   },
   "experiences": [
     {
