@@ -19,6 +19,6 @@ function theme(x){root.dataset.theme=x;themeBtn.textContent=x==='light'?'☀':'�
 langBtn.addEventListener('click',()=>lang(root.lang==='tr'?'en':'tr'));themeBtn.addEventListener('click',()=>theme(root.dataset.theme==='light'?'dark':'light'));
 menuBtn.addEventListener('click',()=>{const open=mobile.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'✕':'☰'});
 mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobile.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰'}));
-let l='en',t='dark';try{l=localStorage.getItem('selim-language')==='tr'?'tr':'en';t=localStorage.getItem('selim-theme')==='light'?'light':'dark'}catch{}lang(l);theme(t);
+let l='en',t='light';try{l=localStorage.getItem('selim-language')==='tr'?'tr':'en';t=localStorage.getItem('selim-theme')==='dark'?'dark':'light'}catch{}lang(l);theme(t);
 })();
 </script></body></html>
