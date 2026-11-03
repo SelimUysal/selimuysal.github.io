@@ -412,8 +412,8 @@ export const DATA = {
         "tr": "Full-Stack Yazılım Geliştirme Stajyeri"
       },
       "description": {
-        "en": "Designed a web-based device and component management application with a React interface, Spring Boot REST APIs, PostgreSQL and PDF/HTML/JSON export functionality.",
-        "tr": "React arayüzü, Spring Boot REST API’leri, PostgreSQL ve PDF/HTML/JSON dışa aktarma özellikleriyle web tabanlı cihaz ve bileşen yönetimi uygulaması geliştirdi."
+        "en": "Designed and implemented a web-based device and component management application during a full-stack internship. Built the React interface, connected it to Spring Boot REST APIs, used PostgreSQL for data management, and added PDF, HTML and JSON export workflows.",
+        "tr": "Full-stack stajı kapsamında web tabanlı cihaz ve bileşen yönetimi uygulamasını tasarlayıp geliştirdi. React arayüzünü oluşturdu, Spring Boot REST API’leriyle entegre etti, veri yönetiminde PostgreSQL kullandı ve PDF, HTML ile JSON dışa aktarma akışlarını ekledi."
       },
       "video": "https://www.youtube.com/watch?v=ZgHwIUqJTao",
       "project": {
@@ -437,8 +437,8 @@ export const DATA = {
         "tr": "Gömülü Sistemler Stajyeri"
       },
       "description": {
-        "en": "Developed Qt-based interfaces, worked with serial communications and configured Ubuntu environments for embedded systems workflows.",
-        "tr": "Qt tabanlı arayüzler geliştirdi; seri haberleşme ve Ubuntu ortamının gömülü sistemler için yapılandırılması üzerinde çalıştı."
+        "en": "Developed Qt-based interface components for embedded-systems workflows, worked with serial communication, and configured Ubuntu environments used in development and testing.",
+        "tr": "Gömülü sistem iş akışları için Qt tabanlı arayüz bileşenleri geliştirdi; seri haberleşme üzerinde çalıştı ve geliştirme/test süreçlerinde kullanılan Ubuntu ortamlarını yapılandırdı."
       },
       "image": "./assets/experience-lentatek.webp",
       "imageAlt": {
@@ -457,8 +457,8 @@ export const DATA = {
         "tr": "STEM Eğitmeni"
       },
       "description": {
-        "en": "Taught software, robotics, electronics and introductory IoT to middle- and high-school students; mentored student projects, competition preparation and took part in project juries.",
-        "tr": "Ortaokul ve lise öğrencilerine yazılım, robotik, elektronik ve temel IoT eğitimi verdi; öğrenci projeleri ve yarışma hazırlıklarında mentorluk yaptı, proje jürilerinde görev aldı."
+        "en": "Delivered hands-on instruction in software, robotics, electronics and introductory IoT for middle- and high-school students. Mentored student projects and competition preparation, and contributed to project evaluation as a jury member.",
+        "tr": "Ortaokul ve lise öğrencilerine yazılım, robotik, elektronik ve temel IoT alanlarında uygulamalı eğitim verdi. Öğrenci projelerine ve yarışma hazırlıklarına mentorluk yaptı; proje değerlendirme süreçlerinde jüri olarak görev aldı."
       },
       "credential": "./assets/certificates/deneyap-advanced-robotics-instructor.pdf",
       "image": "./assets/experience-deneyap.webp",
