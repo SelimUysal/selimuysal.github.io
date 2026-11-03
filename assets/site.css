@@ -388,3 +388,28 @@ body.experience-lightbox-open{overflow:hidden}
   .experience-card > .experience-photo{width:84px;height:118px}
   .experience-card > .experience-photo--deneyap{height:60px}
 }
+
+/* Feature the first academic project with the same visual treatment as the lead software project. */
+.academic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.academic-grid > .project-card-featured{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  gap:0;
+  padding:0;
+  overflow:hidden;
+  min-height:0;
+  align-items:stretch;
+}
+@media(max-width:900px){
+  .academic-grid > .project-card-featured{grid-template-columns:1fr}
+  .academic-grid > .project-card-featured .project-feature-media img{width:100%;height:auto}
+  .academic-grid > .project-card-featured .project-feature-content{padding:clamp(21px,4vw,30px)}
+}
+@media(max-width:630px){
+  .academic-grid{grid-template-columns:1fr}
+  .academic-grid > .project-card-featured{border-radius:15px}
+  .academic-grid > .project-card-featured .project-feature-content{padding:21px}
+  .academic-grid > .project-card-featured .project-feature-content h3{font-size:23px}
+  .academic-grid > .project-card-featured .project-feature-content p{font-size:13px}
+}
