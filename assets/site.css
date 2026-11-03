@@ -64,16 +64,6 @@
 @media(max-width:900px){.certificate-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:630px){.certificate-grid{grid-template-columns:1fr}}
 
-/* Community work is intentionally understated, distinct from professional work. */
-.volunteer-panel{display:flex;align-items:center;justify-content:space-between;gap:26px;padding:32px 36px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
-.volunteer-copy{max-width:740px;min-width:0}
-.volunteer-panel h2{font-size:clamp(26px,3vw,36px);margin:9px 0 12px}
-.volunteer-lead{max-width:660px;font-size:15px;line-height:1.75}
-.volunteer-note{display:inline-block;color:var(--faint);font-size:12px;margin-top:14px}
-.volunteer-link{flex:none;white-space:normal;text-align:center}
-@media(max-width:900px){.volunteer-panel{padding:27px}}
-@media(max-width:630px){.volunteer-panel{flex-direction:column;align-items:stretch;padding:23px;gap:18px}.volunteer-link{width:100%}}
-
 .experience-date-link{color:var(--blue);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px}.experience-date-link:hover{text-decoration-color:currentColor}
 
 
@@ -82,7 +72,7 @@
 .contact-links .contact-button{width:100%;min-width:0;min-height:46px;padding:11px 14px;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:10px;font-size:13px;font-weight:750;justify-content:center;text-align:center}
 .contact-links .contact-button:hover{border-color:var(--blue);background:var(--panel-2);color:var(--blue)}
 .small-cta{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border:1px solid var(--blue-strong);border-radius:10px}
-.button,.filter-buttons button,.experience-video,.volunteer-link{border-radius:10px;font-weight:750}
+.button,.filter-buttons button,.experience-video{border-radius:10px;font-weight:750}
 @media(max-width:900px){.contact-links{width:min(100%,400px)}}
 @media(max-width:630px){.contact-links{width:100%;grid-template-columns:repeat(2,minmax(0,1fr))}.contact-links .contact-button{padding:11px 8px}}
 @media(max-width:350px){.contact-links{grid-template-columns:1fr}}
@@ -181,7 +171,6 @@
 /* Unified card gradient: exactly the same 115deg panel -> panel-2 transition
    as the original Contact section, in light AND dark themes. */
 .contact-panel,
-.volunteer-panel,
 .research-band,
 .cv-grid .cv-card,
 .certificate-grid .certificate,
