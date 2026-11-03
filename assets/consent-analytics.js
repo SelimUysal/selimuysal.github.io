@@ -2,9 +2,10 @@
 (()=>{'use strict';
 const ENDPOINT="https://selim-analytics-collector.uys-selim.workers.dev";
 const KEY="selim-analytics-consent-v3", TOKEN="selim-analytics-token-v3", SESSION="selim-analytics-session-v3";
-const PAGES=new Set(["/selim/","/selim/index.html","/selim/projects.html","/selim/case-studies.html"]);
+const base=location.pathname.startsWith("/selim/")?"/selim":"";
+const PAGES=new Set([`${base}/`,`${base}/index.html`,`${base}/projects.html`,`${base}/case-studies.html`,`${base}/articles/`,`${base}/articles/index.html`,`${base}/articles/technology-and-engineering.html`,`${base}/articles/turkiye-technology-strategy.html`]);
 if(!PAGES.has(location.pathname))return;
-const page=location.pathname==="/selim/"?"/selim/index.html":location.pathname;
+const page=location.pathname===`${base}/`?`${base}/index.html`:location.pathname===`${base}/articles/`?`${base}/articles/index.html`:location.pathname;
 const DNT=navigator.globalPrivacyControl===true||navigator.doNotTrack==="1";
 const PROJECTS={
 "https://selimuysal.github.io/hayat-rehberi/":"project:hayat:live",
@@ -40,10 +41,10 @@ function group(){return innerWidth<640?"mobile":innerWidth<1024?"tablet":"deskto
 function category(link){const u=new URL(link.href,location.href),h=u.hostname;
 return u.pathname.endsWith(".pdf")?"pdf":/^(www\.)?(youtube\.com|youtu\.be)$/.test(h)?"youtube":h==="github.com"?"github":h.endsWith("linkedin.com")?"linkedin":h===location.hostname?"internal":h.endsWith(".github.io")?"project":"external"}
 function target(link){try{const u=new URL(link.href,location.href),full=u.origin+u.pathname;
-if(LOCAL[u.pathname])return LOCAL[u.pathname];
+const localPath=u.pathname.startsWith("/selim/")?u.pathname:`/selim${u.pathname}`;if(LOCAL[localPath])return LOCAL[localPath];
 if(PROJECTS[full])return PROJECTS[full];
-if(u.pathname==="/selim/case-studies.html"&&u.origin===location.origin&&["#teknofest","#rims"].includes(u.hash))return "case:"+u.hash.slice(1)+":details";
-if(u.origin===location.origin&&u.pathname==="/selim/projects.html")return "navigation:projects";
+if(u.pathname.endsWith("/case-studies.html")&&u.origin===location.origin&&["#teknofest","#rims"].includes(u.hash))return "case:"+u.hash.slice(1)+":details";
+if(u.origin===location.origin&&u.pathname.endsWith("/projects.html"))return "navigation:projects";
 const id=link.closest("[data-project]")?.dataset.project;
 if(id&&/^(hayat|video|telegram|quran|teknofest|oracle|patterns|python-exercises|c-exercises|sql-resources)$/.test(id)){
 const type={github:"source",pdf:"report",youtube:"video",project:"live",external:"live"}[category(link)];return type?"project:"+id+":"+type:""}
@@ -80,15 +81,16 @@ async function forget(){const t=token||storage()?.getItem(TOKEN);if(!t)return tr
 function choose(choice){const old=mode==="extended"?"extended":read();started=false;mode="reject";since=0;write(choice);document.querySelector("#selim-analytics-prefs")?.remove();if(choice!=="extended"&&old==="extended")void forget();void begin(choice)}
 function el(t,txt){const n=document.createElement(t);if(txt!=null)n.textContent=txt;return n}
 function prefs(){document.querySelector("#selim-analytics-prefs")?.remove();
-const pane=el("section");pane.id="selim-analytics-prefs";pane.setAttribute("role","dialog");pane.setAttribute("aria-label","Ziyaret analizi tercihleri");
-const h=el("h2","Ziyaret analizi tercihleri");pane.append(h);
+const en=document.documentElement.lang==="en";
+const pane=el("section");pane.id="selim-analytics-prefs";pane.setAttribute("role","dialog");pane.setAttribute("aria-label",en?"Analytics preferences":"Ziyaret analizi tercihleri");pane.setAttribute("aria-describedby","selim-analytics-description");
+const h=el("h2",en?"Your privacy choices":"Ziyaret analizi tercihleri");pane.append(h);
+const p=el("p",en?"No email or name is requested. Rejecting analytics does not limit the site. Basic analytics uses daily country/device-group totals; extended analytics adds pseudonymous visit and device details.":"E-posta veya ad istenmez. Analizi reddetmeniz siteyi kullanmanızı engellemez. Temel izin günlük ülke/cihaz grubu toplamlarını; ayrıntılı izin ise takma adlı ziyaret ve cihaz bilgilerini kapsar.");p.id="selim-analytics-description";pane.append(p);
+const privacy=el("a",en?"Read the privacy notice":"Gizlilik açıklamasını oku");privacy.href=base+"/privacy.html";privacy.className="privacy-link";pane.append(privacy);
 const bar=el("div");bar.className="actions";
-for(const [v,label] of [["reject","Reddet"],["extended","İzin ver"]]){
- const b=el("button",label);b.type="button";
- b.addEventListener("click",()=>choose(v));bar.append(b)
-}
+const choices=en?[["reject","Reject"],["basic","Basic"],["extended","Extended"]]:[["reject","Reddet"],["basic","Temel izin"],["extended","Ayrıntılı izin"]];
+for(const [v,label] of choices){const b=el("button",label);b.type="button";b.addEventListener("click",()=>choose(v));bar.append(b)}
 pane.append(bar);document.body.append(pane)}
-function setup(){const st=el("style");st.textContent="#selim-analytics-prefs{position:fixed;z-index:2147480000;bottom:20px;left:50%;right:auto;transform:translateX(-50%);width:max-content;max-width:calc(100vw - 24px);box-sizing:border-box;margin:0;padding:20px 24px;background:#102239;color:#eff6ff;border:1px solid #7a93ac;border-radius:16px;box-shadow:0 10px 35px #0009;font:14px/1.5 system-ui;text-align:center}#selim-analytics-prefs h2{font-size:18px;line-height:1.3;margin:0 0 14px;white-space:nowrap}#selim-analytics-prefs .actions{display:flex;justify-content:center;gap:10px;flex-wrap:nowrap;margin:0}#selim-analytics-prefs button{font:inherit;background:#254962;color:#fff;border:1px solid #b2c5d8;border-radius:9px;padding:10px 19px;min-width:105px;cursor:pointer}#selim-analytics-prefs button:hover{background:#315e80}#selim-analytics-prefs :focus-visible{outline:3px solid #66bdee}@media(max-width:420px){#selim-analytics-prefs{bottom:12px;padding:16px 14px}#selim-analytics-prefs h2{font-size:16px}#selim-analytics-prefs button{min-width:96px;padding:9px 14px}}";document.head.append(st);
+function setup(){const st=el("style");st.textContent="#selim-analytics-prefs{position:fixed;z-index:2147480000;bottom:20px;left:50%;right:auto;transform:translateX(-50%);width:min(460px,calc(100vw - 24px));box-sizing:border-box;margin:0;padding:20px 24px;background:#102239;color:#eff6ff;border:1px solid #7a93ac;border-radius:16px;box-shadow:0 10px 35px #0009;font:14px/1.5 system-ui;text-align:center}#selim-analytics-prefs h2{font-size:18px;line-height:1.3;margin:0 0 9px}#selim-analytics-prefs p{margin:0 0 8px;color:#d4e1ee}#selim-analytics-prefs .privacy-link{display:inline-block;margin:0 0 14px;color:#a9d8ff;text-decoration:underline}#selim-analytics-prefs .actions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:0}#selim-analytics-prefs button{font:inherit;background:#254962;color:#fff;border:1px solid #b2c5d8;border-radius:9px;padding:10px 15px;min-width:96px;cursor:pointer}#selim-analytics-prefs button:hover{background:#315e80}#selim-analytics-prefs :focus-visible{outline:3px solid #66bdee}@media(max-width:420px){#selim-analytics-prefs{bottom:12px;padding:16px 14px}#selim-analytics-prefs h2{font-size:16px}#selim-analytics-prefs button{min-width:88px;padding:9px 12px}}";document.head.append(st);
 const url=new URL(location.href),forced=url.searchParams.get("analytics")==="preferences";if(forced){url.searchParams.delete("analytics");history.replaceState(history.state,"",url.pathname+url.search+url.hash)}
 const choice=read();if(!DNT){if(forced||!choice)prefs();else void begin(choice);if(choice!=="extended"&&storage()?.getItem(TOKEN))void forget()}}
 
