@@ -64,7 +64,7 @@ const model=hi.model||null;
 const phone_brand=model&&/^SM-/i.test(model)?"Samsung":model&&/^Pixel/i.test(model)?"Google":/iPhone/.test(navigator.userAgent)?"Apple":null;
 return {...d,os_version:hi.platformVersion||d.os_version,device_category:group(),device_type:navigator.userAgentData?.mobile?"phone":group(),device_name:null,phone_brand,phone_model:model,screen_width:screen.width,screen_height:screen.height,viewport_width:innerWidth,viewport_height:innerHeight,device_pixel_ratio:devicePixelRatio,logical_cores:navigator.hardwareConcurrency??null,device_memory_gb:navigator.deviceMemory??null,gpu_vendor,gpu_renderer,browser_language:navigator.language,preferred_languages:(navigator.languages||[]).slice(0,8),browser_timezone:Intl.DateTimeFormat().resolvedOptions().timeZone,color_scheme:matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light",connection_type:c?.type||null,connection_quality:c?.effectiveType||null,connection_downlink_mbps:c?.downlink||null,connection_rtt_ms:c?.rtt||null,hardware_architecture:hi.architecture||null,ua_mobile:navigator.userAgentData?.mobile??null,platform:hi.platform||null,ua_model:model,source_url_host:host()}}
 let mode="reject",started=false,token="",sid="",maxScroll=0,active=0,since=0;
-function send(event_type,link_category="-",target_key="",rest={}){if(!started||DNT)return;
+function send(event_type,link_category="-",target_key="",rest={}){if(!started||DNT||!["basic","extended"].includes(mode))return;
 const data={event_type,page_path:page,link_category,target_key,device_group:mode==="anonymous"?"unknown":group(),consent_mode:mode};
 if(mode==="extended")Object.assign(data,rest,{event_id:uuid(),visitor_token:token,session_token:sid});
 const payload=JSON.stringify(data);
@@ -74,7 +74,7 @@ if(event_type!=="page_view"&&navigator.sendBeacon){
 fetch(ENDPOINT+"/events",{method:"POST",mode:"cors",credentials:"omit",keepalive:true,headers:{"Content-Type":"application/json"},body:payload}).catch(()=>{})}
 function sc(){const total=Math.max(0,document.documentElement.scrollHeight-innerHeight);maxScroll=Math.max(maxScroll,total?Math.round(Math.min(100,scrollY/total*100)):100)}
 function end(){if(mode!=="extended"||!started)return;if(since){active+=performance.now()-since;since=0}send("engagement","-","",{scroll_pct:maxScroll,active_seconds:Math.min(7200,Math.round(active/1000))})}
-async function begin(choice){if(started||DNT)return;mode=choice==="reject"?"anonymous":choice;started=true;
+async function begin(choice){if(started||DNT)return;if(choice==="reject"){mode="reject";started=true;return}if(!["basic","extended"].includes(choice))return;mode=choice;started=true;
 if(mode==="extended"){token=storage()?.getItem(TOKEN)||uuid();sid=session()?.getItem(SESSION)||uuid();try{storage()?.setItem(TOKEN,token);session()?.setItem(SESSION,sid)}catch{};since=document.visibilityState==="visible"?performance.now():0;sc()}
 const details=mode==="extended"?await device():null;if(!started)return;send("page_view","-","",details?{referrer_host:host(),device:details}:{})}
 async function forget(){const t=token||storage()?.getItem(TOKEN);if(!t)return true;try{const response=await fetch(ENDPOINT+"/forget",{method:"POST",mode:"cors",credentials:"omit",headers:{"Content-Type":"application/json"},body:JSON.stringify({visitor_token:t})});if(!response.ok||!(await response.json()).deleted)return false;token="";sid="";try{storage()?.removeItem(TOKEN);session()?.removeItem(SESSION)}catch{}return true}catch{return false}}
