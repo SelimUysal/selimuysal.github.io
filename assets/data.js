@@ -28,8 +28,8 @@ export const DATA = {
         "tr": "Ulaşımda Yapay Zekâ · TEKNOFEST"
       },
       "description": {
-        "en": "SEE AI team project studying aerial detection of people, vehicles and landing zones, comparing YOLOv8/YOLOv9 and SAHI alongside research into visual positioning. Our team ranked 11th of 198 teams in the preliminary design report evaluation; this was not the final competition ranking.",
-        "tr": "SEE AI ekibinde havadan insan, araç ve iniş alanı tespiti için YOLOv8/YOLOv9 ile SAHI karşılaştırmaları ve görsel konum kestirimi araştırması. Ön tasarım raporu değerlendirmesinde 198 takım arasında 11. olduk; bu sonuç yarışmanın genel final sıralaması değildir."
+        "en": "SEE AI team project studying aerial detection of people, vehicles and landing zones, comparing YOLOv8/YOLOv9 and SAHI alongside research into visual positioning. Our team ranked 11th of 198 teams in the preliminary design report evaluation",
+        "tr": "SEE AI ekibinde havadan insan, araç ve iniş alanı tespiti için YOLOv8/YOLOv9 ile SAHI karşılaştırmaları ve görsel konum kestirimi araştırması. Ön tasarım raporu değerlendirmesinde 198 takım arasında 11. olduk"
       },
       "stack": [
         "YOLOv8 / YOLOv9",
