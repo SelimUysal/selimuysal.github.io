@@ -357,51 +357,51 @@ export const DATA = {
     {
       "symbol": "◈",
       "title": {
-        "en": "Machine Learning & LLMs",
-        "tr": "Makine Öğrenmesi ve LLM’ler"
+        "en": "Large Language Models & Evaluation",
+        "tr": "Büyük Dil Modelleri ve Değerlendirme"
       },
       "description": {
-        "en": "Learning how models are evaluated, adapted and integrated into usable systems.",
-        "tr": "Modellerin nasıl değerlendirildiğini, uyarlandığını ve kullanılabilir sistemlere entegre edildiğini araştırmak."
+        "en": "Model behaviour, evaluation methods and the practical limits of LLM-based systems.",
+        "tr": "LLM tabanlı sistemlerin model davranışı, değerlendirme yöntemleri ve pratik sınırları."
       }
     },
     {
       "symbol": "⌁",
       "title": {
-        "en": "Intelligent Agents",
-        "tr": "Akıllı Ajanlar"
+        "en": "AI Agents & Tool Use",
+        "tr": "Yapay Zekâ Ajanları ve Araç Kullanımı"
       },
       "description": {
-        "en": "Multi-step reasoning, tool use and coordination in AI-enabled workflows.",
-        "tr": "Yapay zekâ destekli iş akışlarında çok adımlı akıl yürütme, araç kullanımı ve koordinasyon."
+        "en": "Multi-step planning, tool selection and reliable execution in agentic workflows.",
+        "tr": "Ajan tabanlı iş akışlarında çok adımlı planlama, araç seçimi ve güvenilir yürütme."
       }
     },
     {
       "symbol": "▥",
       "title": {
-        "en": "Software Quality & Systems",
-        "tr": "Yazılım Kalitesi ve Sistemler"
+        "en": "Reliable AI Software Systems",
+        "tr": "Güvenilir Yapay Zekâ Yazılım Sistemleri"
       },
       "description": {
-        "en": "Maintainability, architecture, reliability and practical engineering trade-offs.",
-        "tr": "Sürdürülebilirlik, mimari, güvenilirlik ve pratik mühendislik ödünleşimleri."
+        "en": "Testing, maintainability, failure analysis and software-engineering practices for AI-enabled systems.",
+        "tr": "Yapay zekâ destekli sistemlerde test, sürdürülebilirlik, hata analizi ve yazılım mühendisliği uygulamaları."
       }
     },
     {
       "symbol": "◎",
       "title": {
-        "en": "Autonomous Systems",
-        "tr": "Otonom Sistemler"
+        "en": "Applied Computer Vision · Previous Project Experience",
+        "tr": "Uygulamalı Bilgisayarlı Görü · Önceki Proje Deneyimi"
       },
       "description": {
-        "en": "Applied AI for decision-making and systems operating under constraints.",
-        "tr": "Karar verme ve kısıtlı koşullarda çalışan sistemler için uygulamalı yapay zekâ."
+        "en": "Earlier applied work on aerial object detection with YOLOv8, YOLOv9 and SAHI in the TEKNOFEST 2024 AI in Transportation project.",
+        "tr": "TEKNOFEST 2024 Ulaşımda Yapay Zekâ projesinde YOLOv8, YOLOv9 ve SAHI ile havadan nesne tespiti üzerine önceki uygulamalı çalışma."
       }
     }
   ],
   "researchStatement": {
-    "en": "I want to investigate how computer vision can become more reliable and practical for autonomous systems, particularly for object detection and visual position estimation from aerial imagery. This direction grew out of my TEKNOFEST 2024 AI in Transportation work with the SEE AI team, where I explored YOLOv8, YOLOv9, SAHI and downward-facing camera approaches. In graduate study, I aim to evaluate accuracy, robustness and computational trade-offs under changing visual conditions, and connect these findings to maintainable software systems.",
-    "tr": "Otonom sistemlerde bilgisayarlı görü yöntemlerinin, özellikle havadan alınan görüntülerde nesne tespiti ve görsel konum kestirimi için nasıl daha güvenilir ve uygulanabilir hâle getirilebileceğini araştırmak istiyorum. Bu yönelim, SEE AI ekibiyle yürüttüğümüz TEKNOFEST 2024 Ulaşımda Yapay Zekâ çalışmasında YOLOv8, YOLOv9, SAHI ve aşağı bakan kamera yaklaşımlarını incelememle gelişti. Yüksek lisansta değişen görüntüleme koşullarında doğruluk, dayanıklılık ve hesaplama maliyeti arasındaki ödünleşimleri değerlendirmeyi ve bulguları sürdürülebilir yazılım sistemleriyle ilişkilendirmeyi hedefliyorum."
+    "en": "My current research interests centre on large language models (LLMs) and AI agents. I am particularly interested in how LLM-based agents plan multi-step tasks, use tools, and remain reliable under constraints. At graduate level, I aim to study evaluation methods, failure modes, and software-engineering practices for building dependable, maintainable AI-enabled systems. My computer-vision work with YOLOv8, YOLOv9 and SAHI belongs to an earlier applied project: the TEKNOFEST 2024 AI in Transportation project with the SEE AI team. It represents project experience rather than my primary current research direction.",
+    "tr": "Güncel araştırma ilgim büyük dil modelleri (LLM) ve yapay zekâ ajanları üzerinde yoğunlaşıyor. Özellikle LLM tabanlı ajanların çok adımlı görevleri nasıl planladığını, araçları nasıl kullandığını ve kısıtlı koşullarda ne ölçüde güvenilir çalıştığını incelemek istiyorum. Lisansüstü araştırmalarımda değerlendirme yöntemleri, hata türleri ve güvenilir, sürdürülebilir AI destekli sistemler geliştirmeye yönelik yazılım mühendisliği yaklaşımlarına odaklanmayı hedefliyorum. YOLOv8, YOLOv9 ve SAHI ile yaptığım bilgisayarlı görü çalışması ise SEE AI ekibiyle yürüttüğümüz TEKNOFEST 2024 Ulaşımda Yapay Zekâ projesine ait önceki uygulamalı proje deneyimimdir; güncel ana araştırma yönelimim değildir."
   },
   "experiences": [
     {
