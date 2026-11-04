@@ -515,7 +515,8 @@ export const DATA = {
       "detail": {
         "en": "Atılım University · 24 June 2023",
         "tr": "Atılım Üniversitesi · 24 Haziran 2023"
-      }
+      },
+      "certificate": "./assets/certificates/atilim-honor-student-spring-2022-2023.jpeg"
     }
   ],
   "certificates": [
