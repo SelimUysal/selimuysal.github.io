@@ -1,4 +1,4 @@
-import { DATA } from './data.js?v=20261104-honor-certificate-v1';
+import { DATA } from './data.js?v=20261106-plate-detection-v1';
 
 const root=document.querySelector('#app');
 const page=document.body.dataset.page;
