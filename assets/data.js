@@ -154,7 +154,7 @@ export const DATA = {
         },
         {
           "kind": "video",
-          "url": "https://youtu.be/UipKmgQijiE"
+          "url": "https://www.youtube.com/watch?v=Vp84SeGhcSc"
         }
       ],
       "category": "software",
