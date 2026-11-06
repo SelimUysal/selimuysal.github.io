@@ -117,6 +117,50 @@ export const DATA = {
       "icon": "⌘"
     },
     {
+      "id": "plate",
+      "showOn": [
+        "industry"
+      ],
+      "theme": "blue",
+      "symbol": "▣",
+      "year": "Computer vision application",
+      "type": {
+        "en": "Live computer vision application",
+        "tr": "Yayında olan bilgisayarlı görü uygulaması"
+      },
+      "name": {
+        "en": "Plate Detection",
+        "tr": "Plaka Tespiti"
+      },
+      "description": {
+        "en": "Developed a web-based computer vision application that detects licence plates in vehicle images using a custom-trained YOLOv5 model and reads the detected plate text with Tesseract OCR.",
+        "tr": "Araç görselleri üzerinden özel eğitilmiş YOLOv5 modeliyle plaka tespiti yapan ve Tesseract OCR kullanarak tespit edilen plaka metnini okuyan web tabanlı bir bilgisayarlı görü uygulaması geliştirdim."
+      },
+      "stack": [
+        "Python",
+        "YOLOv5",
+        "Tesseract OCR",
+        "Streamlit",
+        "Roboflow Universe"
+      ],
+      "links": [
+        {
+          "kind": "live",
+          "url": "https://plate-detection-selim-uysal.streamlit.app/"
+        },
+        {
+          "kind": "source",
+          "url": "https://github.com/SelimUysal/plate-detection"
+        },
+        {
+          "kind": "video",
+          "url": "https://youtu.be/UipKmgQijiE"
+        }
+      ],
+      "category": "software",
+      "icon": "🚘"
+    },
+    {
       "id": "hayat",
       "showOn": [
         "industry"
