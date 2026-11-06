@@ -30,7 +30,6 @@ const coverMap={
   hayat:{src:'./assets/hayat-rehberi-cover.webp',width:1000,height:563,en:'Hayat Rehberi application modules overview',tr:'Hayat Rehberi uygulamasının bölümlerini gösteren kapak'},
   video:{src:'./assets/video-speed-cover.webp',width:1920,height:1080,en:'Video Speed extension playback controls and browser interface',tr:'Video Speed eklentisinin tarayıcı ve video kontrol arayüzü'},
   telegram:{src:'./assets/telegram-news-cover.webp',width:1920,height:1080,en:'Telegram news automation workflow and sample channel',tr:'Telegram haber otomasyonu iş akışı ve örnek kanal'},
-  quran:{src:'./assets/quran-memorization-cover.webp',width:1920,height:1080,en:'Quran memorization and Arabic word analysis application',tr:'Kur’an ezber ve Arapça kelime analizi uygulaması'},
   sadaquran:{src:'./assets/sadaquran-radio-icon.webp',width:192,height:192,en:'SadaQuran Radio cover artwork featuring the holy cities and a Qur’an',tr:'Kutsal şehirleri ve Kur’an-ı Kerim’i tasvir eden SadaQuran Radyo kapak görseli'}
 };
 const cover=coverMap[p.id];
