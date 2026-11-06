@@ -281,87 +281,9 @@ export const DATA = {
       "category": "software",
       "icon": "➤"
     },
-    {
-      "id": "quran",
-      "showOn": [
-        "industry"
-      ],
-      "theme": "amber",
-      "symbol": "⌘",
-      "year": "Web application",
-      "type": {
-        "en": "Live interactive web application",
-        "tr": "Canlı etkileşimli web uygulaması"
-      },
-      "name": {
-        "en": "Quran Memorization & Arabic Analysis",
-        "tr": "Kur’an Ezber ve Arapça Analiz"
-      },
-      "description": {
-        "en": "Interactive Quran reading and memorization with selectable Arabic text, audio repetition and speed controls, reading preferences, and optional Gemini-powered linguistic analysis.",
-        "tr": "Seçilebilir Arapça metinler, sesli tekrar ve hız ayarları, okuma tercihleri ve isteğe bağlı Gemini destekli dil çözümlemesi sunan etkileşimli Kur’an okuma ve ezber uygulaması."
-      },
-      "stack": [
-        "JavaScript",
-        "ES Modules",
-        "Audio APIs",
-        "Gemini API"
-      ],
-      "links": [
-        {
-          "kind": "live",
-          "url": "https://selimuysal.github.io/kuran-ezber/"
-        },
-        {
-          "kind": "source",
-          "url": "https://github.com/SelimUysal/kuran-ezber"
-        }
-      ],
-      "category": "software",
-      "icon": "◈"
-    },
 
   ],
   "archive": [
-    {
-      "id": "python-exercises",
-      "name": {
-        "en": "Python Programming Exercises",
-        "tr": "Python Programlama Alıştırmaları"
-      },
-      "description": {
-        "en": "Four educational Python exercises exploring recursion, parsing, functions and text processing.",
-        "tr": "Özyineleme, ayrıştırma, fonksiyonlar ve metin işlemeyi kapsayan dört eğitsel Python alıştırması."
-      },
-      "technology": "Python",
-      "url": "https://github.com/SelimUysal/Python-simple-code"
-    },
-    {
-      "id": "c-exercises",
-      "name": {
-        "en": "C Programming Exercises",
-        "tr": "C Programlama Alıştırmaları"
-      },
-      "description": {
-        "en": "An archive of 89 C exercises, string processing examples and one C++ example.",
-        "tr": "89 adet C alıştırması, metin işleme örnekleri ve bir C++ örneği içeren arşiv."
-      },
-      "technology": "C / C++",
-      "url": "https://github.com/SelimUysal/C-dili-ornekler"
-    },
-    {
-      "id": "sql-resources",
-      "name": {
-        "en": "SQL Practice Resources",
-        "tr": "SQL Çalışma Kaynakları"
-      },
-      "description": {
-        "en": "SQL practice examples and learning materials; a resource repository rather than a software product.",
-        "tr": "Bir yazılım ürünü değil; SQL sorgu örnekleri ve çalışma dokümanları koleksiyonu."
-      },
-      "technology": "SQL",
-      "url": "https://github.com/SelimUysal/SQL-examples"
-    }
   ],
   "research": [
     {
