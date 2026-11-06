@@ -435,3 +435,35 @@ html body .research-band h3{font-size:clamp(26px,2.7vw,36px)}
 @media(max-width:390px){
   html body .experience-card h3{font-size:19px}
 }
+
+
+/* Experience & teaching cards: subtle lift, clearer outline and contained photo zoom. */
+@media (hover:hover) and (pointer:fine){
+  .timeline>.experience-card{
+    z-index:0;
+    transform:translateY(0) scale(1);
+    transition:transform .28s cubic-bezier(.2,.7,.25,1),border-color .28s ease,box-shadow .28s ease;
+    will-change:transform;
+  }
+  .timeline>.experience-card:hover,
+  .timeline>.experience-card:focus-within{
+    z-index:2;
+    transform:translateY(-4px) scale(1.012);
+    border-color:var(--blue);
+    box-shadow:0 16px 34px rgba(0,0,0,.13),0 0 0 1px color-mix(in srgb,var(--blue) 28%,transparent);
+  }
+  .timeline>.experience-card .experience-photo img{
+    transition:transform .45s cubic-bezier(.2,.7,.25,1);
+  }
+  .timeline>.experience-card:hover .experience-photo img,
+  .timeline>.experience-card:focus-within .experience-photo img{
+    transform:scale(1.035);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .timeline>.experience-card,
+  .timeline>.experience-card .experience-photo img{
+    transition:none!important;
+    transform:none!important;
+  }
+}
