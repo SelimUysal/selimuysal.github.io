@@ -320,41 +320,7 @@ export const DATA = {
       "category": "software",
       "icon": "◈"
     },
-    {
-      "id": "sadaquran",
-      "showOn": [
-        "industry"
-      ],
-      "theme": "blue",
-      "symbol": "♫",
-      "year": "2026",
-      "type": {
-        "en": "LIVE · Online Qur’an radio",
-        "tr": "CANLI · Çevrimiçi Kur’an radyosu"
-      },
-      "name": {
-        "en": "SadaQuran Radio",
-        "tr": "SadaQuran Radyo"
-      },
-      "description": {
-        "en": "A Qur’an recitation radio channel with a dedicated listening page. Set up and managed using the AWE Radio broadcasting platform.",
-        "tr": "Kur’an-ı Kerim tilaveti için dinleme sayfasına sahip çevrimiçi radyo kanalı. Yayın kurulumu ve yönetimi AWE Radio platformu üzerinden gerçekleştirildi."
-      },
-      "stack": [
-        "Live Radio",
-        "Audio Streaming",
-        "Broadcast Operations",
-        "AWE Radio"
-      ],
-      "links": [
-        {
-          "kind": "live",
-          "url": "https://sadaquran.aweradio.app/"
-        }
-      ],
-      "category": "software",
-      "icon": "♫"
-    }
+
   ],
   "archive": [
     {
