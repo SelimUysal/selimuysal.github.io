@@ -467,3 +467,27 @@ html body .research-band h3{font-size:clamp(26px,2.7vw,36px)}
     transform:none!important;
   }
 }
+
+
+/* Timeline markers: outlined on desktop, filled on touch devices. */
+@media (hover:hover) and (pointer:fine){
+  .timeline>.experience-card::before{
+    background:var(--panel);
+    border:2px solid var(--blue);
+    box-shadow:0 0 0 4px var(--panel);
+    transition:background-color .28s ease,transform .28s ease,box-shadow .28s ease;
+  }
+  .timeline>.experience-card:hover::before,
+  .timeline>.experience-card:focus-within::before{
+    background:var(--blue);
+    transform:scale(1.08);
+    box-shadow:0 0 0 4px var(--panel),0 0 0 6px color-mix(in srgb,var(--blue) 18%,transparent);
+  }
+}
+@media (hover:none), (pointer:coarse){
+  .timeline>.experience-card::before{
+    background:var(--blue);
+    border:2px solid var(--blue);
+    box-shadow:0 0 0 4px var(--panel);
+  }
+}
